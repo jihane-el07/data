@@ -2,7 +2,7 @@ const express = require('express');
 const app = express(); 
 const db=require('./db');
 const { createArticle ,AllArticle ,UpdateArticle,singlArticle,DeleteArticle} = require('./controllers/articleConteroller');
-const port = 8000; 
+const port = 3000; 
 // Middleware pour interpréter les requêtes JSON 
 app.use(express.json()); 
 app.post('/articles', createArticle);
