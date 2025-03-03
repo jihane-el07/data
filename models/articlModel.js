@@ -2,19 +2,19 @@ const mongoose = require('mongoose');
 
 const articleSchema = new mongoose.Schema({
     title:  String,
-    image:   String, // Changed from Text to String
+    image:   String, 
     contenu:String, 
     categorie: String,
-    imageH: { type: String, default: null }, // Nullable
+    imageH: { type: String, default: null }, 
     imageM: String, 
     location:  String, 
     date:  String,
     prix: String, 
-    viewsI:  String,// Changed from Text to String
+    viewsI:  String,
     views:  String, 
     negotiable: String, 
     description: String, 
-}, { timestamps: true }); // Automatically adds createdAt & updatedAt
+}, { timestamps: true }); 
 
 const Article = mongoose.model('Article', articleSchema);
 

@@ -5,7 +5,6 @@ const cors = require('cors');
 app.use(cors());
 const { createArticle ,AllArticle ,UpdateArticle,singlArticle,DeleteArticle} = require('./controllers/articleConteroller');
 const port = 3000; 
-// Middleware pour interpréter les requêtes JSON 
 app.use(express.json()); 
 app.post('/articles', createArticle);
 // Route d'accueil 
