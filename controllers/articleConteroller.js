@@ -34,6 +34,21 @@ const singlArticle=async (req,res)=>{
         res.status(500).json({ success: false, message: "Error fetching article", error: error.message });
     }
 }
+const ArticlesByCategory = async (req, res) => {
+    try {
+        const { category } = req.params; // Get category from URL parameter
+
+        const articles = await ArticlModel.find({categorie:category});
+
+        if (articles.length === 0) {
+            return res.status(404).json({ success: false, message: "No articles found in this category" });
+        }
+
+        res.status(200).json({ success: true, data: articles });
+    } catch (error) {
+        res.status(500).json({ success: false, message: "Error fetching articles", error: error.message });
+    }
+};
 const DeleteArticle=async (req,res)=>{
     const {articleID}=req.params
     const supp= await ArticlModel.findByIdAndDelete(articleID)
@@ -41,5 +56,5 @@ const DeleteArticle=async (req,res)=>{
 }
 
 module.exports={
-    createArticle,AllArticle,UpdateArticle,DeleteArticle,singlArticle
+    createArticle,AllArticle,UpdateArticle,DeleteArticle,singlArticle,ArticlesByCategory
 }

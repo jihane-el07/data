@@ -3,12 +3,13 @@ const app = express();
 const db=require('./db');
 const cors = require('cors');
 app.use(cors());
-const { createArticle ,AllArticle ,UpdateArticle,singlArticle,DeleteArticle} = require('./controllers/articleConteroller');
+const { createArticle ,AllArticle ,UpdateArticle,singlArticle,DeleteArticle,ArticlesByCategory} = require('./controllers/articleConteroller');
 const port = 5000; 
 app.use(express.json()); 
 app.post('/articles', createArticle);
 // Route d'accueil 
 app.get('/articles', AllArticle);
+app.get('/articles/category/:category', ArticlesByCategory);
 app.get('/articles/:articleID', singlArticle);
 app.put('/articles/:articleID', UpdateArticle); 
 app.delete('/articles/:articleID' ,DeleteArticle)
