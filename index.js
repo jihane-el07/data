@@ -4,7 +4,7 @@ const db=require('./db');
 const cors = require('cors');
 app.use(cors({ origin: '*' }));
 const { createArticle ,AllArticle ,UpdateArticle,singlArticle,DeleteArticle,ArticlesByCategory} = require('./controllers/articleConteroller');
-const port = 5000; 
+const port = 3000; 
 app.use(express.json()); 
 app.post('/articles', createArticle);
 // Route d'accueil 
